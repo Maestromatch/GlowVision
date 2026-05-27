@@ -835,6 +835,18 @@
       color: var(--ink);
     }
 
+    .address-link {
+      color: var(--teal-dark);
+      font-weight: 900;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .address-link:hover {
+      color: var(--orange-dark);
+    }
+
     .map-card {
       position: relative;
       min-height: 430px;
@@ -1396,7 +1408,7 @@
           <div class="location-panel">
             <p class="eyebrow">Ubicacion</p>
             <h2>Estamos en Punitaqui.</h2>
-            <p>Visitanos en Caupolican #763 o escribe antes por WhatsApp para consultar disponibilidad, agenda o modelos.</p>
+            <p>Visitanos en <a class="address-link" href="https://www.google.com/maps/search/?api=1&query=Caupolican%20763%2C%20Punitaqui%2C%20Chile" target="_blank" rel="noopener">Caupolican #763, Punitaqui</a> o escribe antes por WhatsApp para consultar disponibilidad, agenda o modelos.</p>
             <ul class="hours" aria-label="Horario de atencion">
               <li><strong>Lunes</strong><span>Cerrado</span></li>
               <li><strong>Martes a viernes</strong><span>11:30 a 14:00 / 15:00 a 18:30 hrs</span></li>
@@ -1405,14 +1417,14 @@
             </ul>
             <div class="hero-actions">
               <a class="button primary" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20confirmar%20horario%20y%20agendar" target="_blank" rel="noopener">Confirmar horario</a>
-              <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Caupolican%20763%2C%20Punitaqui%2C%20Chile" target="_blank" rel="noopener">Abrir mapa</a>
+              <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Caupolican%20763%2C%20Punitaqui%2C%20Chile" target="_blank" rel="noopener">Como llegar en Google Maps</a>
             </div>
           </div>
           <div class="map-card" aria-label="Mapa visual de ubicacion">
             <div class="map-card-content">
               <h3>Caupolican #763</h3>
-              <p>Punitaqui, Chile. Cerca de comercio local y atencion directa en tienda.</p>
-              <a class="button secondary" href="https://www.instagram.com/opticaglowvision/" target="_blank" rel="noopener">Ver Instagram</a>
+              <p>Punitaqui, Chile. Toca el boton para abrir la ruta en Google Maps.</p>
+              <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Caupolican%20763%2C%20Punitaqui%2C%20Chile" target="_blank" rel="noopener">Abrir ubicacion</a>
             </div>
           </div>
         </div>

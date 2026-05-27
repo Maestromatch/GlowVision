@@ -12,4 +12,4 @@ Sitio web estatico de Optica Glow Vision en Punitaqui.
 
 - WhatsApp: +56 9 5493 2802
 - Instagram: https://www.instagram.com/opticaglowvision/
-- Ubicacion: Caupolican #763, Punitaqui.
+- Ubicacion: Caupolican #763, Punitaqui, con enlace directo a Google Maps.
