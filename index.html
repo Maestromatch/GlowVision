@@ -529,12 +529,14 @@
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .product-card {
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #fff;
@@ -544,23 +546,84 @@
     .product-card img {
       width: 100%;
       aspect-ratio: 4 / 3;
-      object-fit: cover;
-      background: #edf3f1;
+      padding: 12px;
+      object-fit: contain;
+      box-sizing: border-box;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(107, 207, 189, 0.26), transparent 34%),
+        linear-gradient(180deg, #f8fbfa, #edf4f2);
     }
 
-    .product-card div {
+    .product-card-body {
+      display: grid;
+      gap: 9px;
+      flex: 1;
       padding: 16px;
     }
 
     .product-card strong {
       display: block;
-      margin-bottom: 4px;
       font-size: 1rem;
     }
 
     .product-card span {
       color: var(--ink-soft);
       font-size: 0.92rem;
+    }
+
+    .product-code {
+      width: max-content;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: var(--teal-dark);
+      background: rgba(13, 143, 124, 0.12);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      margin-top: auto;
+      padding: 0 12px;
+      border: 1px solid rgba(11, 43, 63, 0.14);
+      border-radius: 8px;
+      color: var(--navy);
+      background: #fff;
+      font-size: 0.84rem;
+      font-weight: 900;
+      transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .product-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(13, 143, 124, 0.48);
+      color: var(--teal-dark);
+    }
+
+    .catalog-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .catalog-summary span {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink-soft);
+      background: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .catalog-summary strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: 0.96rem;
     }
 
     .buy-flow {
@@ -997,7 +1060,8 @@
       }
 
       .category-row,
-      .buy-flow {
+      .buy-flow,
+      .catalog-summary {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1053,6 +1117,7 @@
       .category-row,
       .buy-flow,
       .product-grid,
+      .catalog-summary,
       .gallery-side {
         grid-template-columns: 1fr;
       }
@@ -1209,61 +1274,198 @@
       <div class="container">
         <div class="section-head">
           <div>
-          <p class="eyebrow">Modelos destacados</p>
-          <h2>Modelos destacados para elegir y consultar por WhatsApp.</h2>
-        </div>
-          <p>Elige una referencia, envia una foto o pregunta por disponibilidad. Te orientamos segun tu receta, tu rostro y el uso que le daras a tus lentes.</p>
+            <p class="eyebrow">Catalogo disponible</p>
+            <h2>Todos los modelos actuales en una vitrina ordenada.</h2>
+          </div>
+          <p>Elige una referencia y consultala por WhatsApp. Te orientamos segun tu receta, tu rostro y el uso que le daras a tus lentes.</p>
         </div>
 
         <div class="tabs-shell">
-          <div class="tabs" role="tablist" aria-label="Filtros de catalogo">
-            <button class="tab-button active" type="button" role="tab" aria-selected="true" data-filter="all">Todos</button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-filter="optico">Opticos</button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-filter="sol">Sol</button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-filter="color">Color</button>
+          <div class="catalog-summary" aria-label="Resumen del catalogo">
+            <span><strong>20 modelos reales</strong>Fotos actuales compartidas por Glow Vision.</span>
+            <span><strong>Codigo por modelo</strong>Usa GV-01 a GV-20 para consultar rapido.</span>
+            <span><strong>Disponibilidad directa</strong>Confirma stock y valores por WhatsApp.</span>
           </div>
 
           <div class="product-grid" id="productGrid">
-            <article class="product-card" data-type="optico">
-              <img src="assets/marco-azul.jpg" alt="Marco optico azul disponible en Glow Vision" loading="lazy">
-              <div>
-                <strong>Marco optico azul</strong>
-                <span>Para receta y uso diario.</span>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-01.jpg" alt="Modelo GV-01 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-01</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-01" target="_blank" rel="noopener">Consultar modelo</a>
               </div>
             </article>
-            <article class="product-card" data-type="optico">
-              <img src="assets/marco-transparente.jpg" alt="Marco optico transparente disponible en Glow Vision" loading="lazy">
-              <div>
-                <strong>Marco transparente</strong>
-                <span>Liviano, limpio y versatil.</span>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-02.jpg" alt="Modelo GV-02 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-02</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-02" target="_blank" rel="noopener">Consultar modelo</a>
               </div>
             </article>
-            <article class="product-card" data-type="color">
-              <img src="assets/marco-dorado.jpg" alt="Marco dorado disponible en Glow Vision" loading="lazy">
-              <div>
-                <strong>Marco dorado</strong>
-                <span>Detalle fino para un look elegante.</span>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-03.jpg" alt="Modelo GV-03 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-03</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-03" target="_blank" rel="noopener">Consultar modelo</a>
               </div>
             </article>
-            <article class="product-card" data-type="color">
-              <img src="assets/marco-amarillo.jpg" alt="Marco amarillo disponible en Glow Vision" loading="lazy">
-              <div>
-                <strong>Marco con color</strong>
-                <span>Para quienes quieren destacar.</span>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-04.jpg" alt="Modelo GV-04 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-04</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-04" target="_blank" rel="noopener">Consultar modelo</a>
               </div>
             </article>
-            <article class="product-card" data-type="sol">
-              <img src="assets/lentes-sol.jpg" alt="Lentes de sol disponibles en Glow Vision" loading="lazy">
-              <div>
-                <strong>Lentes de sol</strong>
-                <span>Proteccion y estilo para todos los dias.</span>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-05.jpg" alt="Modelo GV-05 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-05</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-05" target="_blank" rel="noopener">Consultar modelo</a>
               </div>
             </article>
-            <article class="product-card" data-type="optico">
-              <img src="assets/marco-carey.jpg" alt="Marco carey disponible en Glow Vision" loading="lazy">
-              <div>
-                <strong>Marco carey</strong>
-                <span>Clasico, combinable y comodo.</span>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-06.jpg" alt="Modelo GV-06 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-06</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-06" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-07.jpg" alt="Modelo GV-07 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-07</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-07" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-08.jpg" alt="Modelo GV-08 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-08</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-08" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-09.jpg" alt="Modelo GV-09 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-09</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-09" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-10.jpg" alt="Modelo GV-10 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-10</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-10" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-11.jpg" alt="Modelo GV-11 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-11</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-11" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-12.jpg" alt="Modelo GV-12 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-12</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-12" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-13.jpg" alt="Modelo GV-13 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-13</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-13" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-14.jpg" alt="Modelo GV-14 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-14</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-14" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-15.jpg" alt="Modelo GV-15 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-15</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-15" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-16.jpg" alt="Modelo GV-16 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-16</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-16" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-17.jpg" alt="Modelo GV-17 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-17</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-17" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-18.jpg" alt="Modelo GV-18 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-18</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-18" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-19.jpg" alt="Modelo GV-19 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-19</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-19" target="_blank" rel="noopener">Consultar modelo</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/catalogo/modelo-gv-20.jpg" alt="Modelo GV-20 disponible en Glow Vision" loading="lazy" decoding="async">
+              <div class="product-card-body">
+                <span class="product-code">GV-20</span>
+                <strong>Modelo disponible</strong>
+                <span>Referencia real del catalogo actual.</span>
+                <a class="product-link" href="https://wa.me/56954932802?text=Hola%20Glow%20Vision%2C%20quiero%20consultar%20por%20el%20modelo%20GV-20" target="_blank" rel="noopener">Consultar modelo</a>
               </div>
             </article>
           </div>
